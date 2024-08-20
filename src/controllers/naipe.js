@@ -10,12 +10,14 @@ const model = (naipe, id = nextId++) => {
   }
 };
 
-const store = (naipe) => {
-  const novo = model(naipe);
+const store = (body) => {
+  const novo = model(body);
+
   if (novo) {
     db.push(novo);
     return 201;
   }
+
   return 400;
 };
 
@@ -29,8 +31,10 @@ const update = (id, body) => {
 
   if (novo && index != -1) {
     db[index] = novo;
+
     return 200;
   }
+
   return 400;
 };
 
@@ -43,9 +47,9 @@ const destroy = (id) => {
 };
 
 module.exports = {
-    store,
-    index,
-    show,
-    update,
-    destroy,
-}
+  store,
+  index,
+  show,
+  update,
+  destroy,
+};
